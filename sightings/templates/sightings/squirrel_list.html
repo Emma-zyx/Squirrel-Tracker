@@ -1,6 +1,11 @@
 <!doctype html>
 <html>
   <body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Squirrel List</h1>
+      <p>This is a list of all squirrels.</p> 
+  </div>
    <ul>
    {% for Squirrel in squirrels %}
    <li><a href="{{ Squirrel.Unique_Squirrel_ID }}">{{Squirrel.Unique_Squirrel_ID}}</a>
