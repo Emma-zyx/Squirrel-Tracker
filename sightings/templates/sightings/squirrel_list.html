@@ -1,1 +1,12 @@
-<>
+<!doctype html>
+<html>
+  <body>
+   <ul>
+   {% for Squirrel in squirrels %}
+   <li><a href="{{ Squirrel.Unique_Squirrel_ID }}">{{Squirrel.Unique_Squirrel_ID}}</a>
+    <p>{{Squirrel.Date}}</p>
+   </li>
+   {% endfor %}
+   </ul>
+  </body>
+</html>
