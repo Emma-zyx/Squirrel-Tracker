@@ -10,9 +10,10 @@ def squirrels_list(request):
     return render(request, 'sightings/squirrel_list.html', context)
 
 def map(request):
-    random_100 = random.sample(range(squirrels.objects.all().count()),k=100)
+    random_100 = random.sample(range(Squirrel.objects.all().count()),k=100)
     mapped = []
     for i in random_100:
-        mapped.append(squirrels.objects.all()[i])
+        mapped.append(Squirrel.objects.all()[i])
     context = {'sightings': mapped}
     return render(request, 'sightings/map.html',context)
+
