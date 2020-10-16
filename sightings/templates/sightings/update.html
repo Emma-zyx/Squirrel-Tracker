@@ -1,0 +1,16 @@
+<!doctype>
+<html>
+  <body>
+    <div class="container">
+    <div class="jumbotron">
+      <h1>Update</h1> 
+    </div>
+
+    <form method = "post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <br>
+      <button type="update">Update</button>
+    </form>
+  </body>
+</html>
