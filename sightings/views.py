@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import Squirrel
 from .forms import TrackingForm
+import random 
 from random import sample
 
 def squirrels_list(request):
@@ -13,12 +14,11 @@ def squirrels_list(request):
 
 def update_squirrel(request, squirrel_id):
     squirrel = Squirrel.objects.get(Unique_Squirrel_ID = squirrel_id)
-    
     if request.method == 'POST':
         form = TrackingForm(request.POST, instance=squirrel)
         if form.is_valid():
             form.save()
-            message.success(request, "Updated successfully!")
+            messages.success(request, "Updated successfully!")
             return redirect(f'/sightings/')
     else:
         form = TrackingForm(instance=squirrel)
@@ -39,18 +39,18 @@ def add(request):
         form = TrackingForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/sightings/')
+            return redirect(f'/sightings/')
     else:
         form = TrackingForm()
-    context = {'form': form}
+    context = {'form': form,}
     return render(request, 'sightings/add.html',context)
 
 def stats(request):
     sq_num = Squirrel.objects.all().count()
     sq_adult = Squirrel.objects.filter(Age='Adult').count()
-    sq_cinna = Squirrel.objects.filter(Primary_fur_color='Cinnamon').count()
+    sq_cinna = Squirrel.objects.filter(Primary_Fur_Color='Cinnamon').count()
     sq_chasing = Squirrel.objects.filter(Chasing=True).count()
-    sq_tail_twitches = Squirrel.objects.filter(Tail_twitches=True).count()
+    sq_tail_twitches = Squirrel.objects.filter(Tail_Twitches=True).count()
 
     context = {'sq_num': sq_num,
                'sq_adult': sq_adult,
