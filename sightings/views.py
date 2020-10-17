@@ -4,8 +4,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import Squirrel
 from .forms import TrackingForm
-import random 
-from random import sample
+
 
 def squirrels_list(request):
     squirrels = Squirrel.objects.all()
@@ -14,6 +13,7 @@ def squirrels_list(request):
 
 def update_squirrel(request, squirrel_id):
     squirrel = Squirrel.objects.get(Unique_Squirrel_ID = squirrel_id)
+    
     if request.method == 'POST':
         form = TrackingForm(request.POST, instance=squirrel)
         if form.is_valid():
@@ -27,10 +27,7 @@ def update_squirrel(request, squirrel_id):
     return render(request, 'sightings/update.html',context)
 
 def map(request):
-    random_100 = random.sample(range(Squirrel.objects.all().count()),k=100)
-    mapped = []
-    for i in random_100:
-        mapped.append(Squirrel.objects.all()[i])
+    mapped = Squirrel.objects.all()[:100]
     context = {'sightings': mapped}
     return render(request, 'sightings/map.html',context)
 
