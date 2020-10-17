@@ -35,8 +35,8 @@
     <!-- Leaflet JS -->
     <script>
         var map_center = [
-            -73.964285, // Latitude
-            40.782091   // Longitude
+            40.782091,  // Latitude
+            -73.964285  // Longitude
         ];
         var zoom_level = 14;
         var map = L.map('map').setView(map_center, zoom_level);
@@ -45,12 +45,14 @@
             // must leave attribution in!
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         }).addTo(map);
+
         <!-- L.Icon.Default.prototype.options.iconSize = 15; -->
-        <!-- L.Icon.Default.prototype.options.iconAnchor = [0, 0]; -->
+        <!-- L.Icon.Default.prototype.options.iconAnchor = [040.782091,, 0]; -->
         <!-- L.Icon.Default.prototype.options.shadowSize = 15; -->
         <!-- L.Icon.Default.prototype.options.shadowAnchor = [0, 0]; -->
-        {% for sighting in sightings %}
-          var point_lat_lon = [{{ sighting.Latitude }}, {{ sighting.Longtitute }}];
+
+	{% for sight in mapped %}
+          var point_lat_lon = [{{ sight.Longitude}}, {{ sight.Latitude }}]; 
           var marker = L.marker(point_lat_lon).addTo(map);
         {% endfor %}
     </script>
