@@ -1,10 +1,8 @@
 from django.shortcuts import render,redirect
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
-from django.contrib import messages
 from .models import Squirrel
 from .forms import TrackingForm
-
 
 def squirrels_list(request):
     squirrels = Squirrel.objects.all()
@@ -12,18 +10,16 @@ def squirrels_list(request):
     return render(request, 'sightings/squirrel_list.html', context)
 
 def update_squirrel(request, squirrel_id):
-    squirrel = Squirrel.objects.get(Unique_Squirrel_ID = squirrel_id)
-    
+    squirrel = get_object_or_404(Squirrel, Unique_Squirrel_ID=squirrel_id)
     if request.method == 'POST':
         form = TrackingForm(request.POST, instance=squirrel)
         if form.is_valid():
             form.save()
-            messages.success(request, "Updated successfully!")
             return redirect(f'/sightings/')
     else:
         form = TrackingForm(instance=squirrel)
         
-    context = {'form':form,}
+    context = {'form':form}
     return render(request, 'sightings/update.html',context)
 
 def map(request):
@@ -40,7 +36,7 @@ def add(request):
     else:
         form = TrackingForm()
     context = {'form': form,}
-    return render(request, 'sightings/add.html',context)
+    return render(request, 'sightings/add.html', context)
 
 def stats(request):
     sq_num = Squirrel.objects.all().count()
