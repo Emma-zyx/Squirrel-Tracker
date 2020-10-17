@@ -28,7 +28,7 @@ def update_squirrel(request, squirrel_id):
 
 def map(request):
     mapped = Squirrel.objects.all()[:100]
-    context = {'sightings': mapped}
+    context = {'mapped': mapped}
     return render(request, 'sightings/map.html',context)
 
 def add(request):
