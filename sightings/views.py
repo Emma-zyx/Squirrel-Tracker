@@ -23,10 +23,8 @@ def update_squirrel(request, squirrel_id):
     return render(request, 'sightings/update.html',context)
 
 def map(request):
-    random_100 = random.sample(range(Squirrel.objects.all().count()),k=100)
-    mapped = []
-    for i in random_100:
-        mapped.append(Squirrel.objects.all()[i])
+    mapped = Squirrel.objects.all()[:100]
+    context = {'sightings': mapped}
     return render(request, 'sightings/map.html',context)
 
 def add(request):
