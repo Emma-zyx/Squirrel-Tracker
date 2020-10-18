@@ -1,9 +1,7 @@
 <!doctype>
 <html>
-	<head> 
-		<title>Add a new sighting</title>
-	</head>
 	<body>
+		<h1>Add a New Sighting</h1>
 		<form method = "post">
 			{% csrf_token %}
 			{{ form.as_p }}
