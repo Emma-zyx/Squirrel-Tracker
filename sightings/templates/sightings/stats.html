@@ -1,12 +1,51 @@
-<!doctype>
+<!DOCTYPE html>
 <html>
- <body>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+  background-image: url("https://wallpapercave.com/wp/wp2466268.jpg");
+  background-color: #cccccc;
+  height: 750px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity:0.6;
+  filter:alpha(opacity=80);
+}
+
+.hero-text {
+  text-align: left;
+  position: absolute;
+  top: 27%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+</style>
+</head>
+<body>
+
+<div class="hero-image">
+</div>
+  <div class="hero-text">
+    <h1 style="font-size:50px">Stats of Squirrel</h1>
+    <ul>
+       <li style="font-size:20px"> Total number of squirrels:  {{sq_num}} </li><br>
+       <li style="font-size:20px"> Total number of adult squirrels: {{sq_adult}} </li><br>
+       <li style="font-size:20px"> Total number of cinnamon squirrels: {{sq_cinna}} </li><br>
+       <li style="font-size:20px"> Total number of chasing squirrels: {{sq_chasing}} </li><br>
+       <li style="font-size:20px"> Total number of squirrels with tail twitches: {{sq_tail_twitches}} </li>
    <ul>
-       <li> Total number of squirrels: {{sq_num}} </li>
-       <li> Total number of adult squirrels: {{sq_adult}} </li>
-       <li> Total number of cinnamon squirrels: {{sq_cinna}} </li>
-       <li> Total number of chasing squirrels: {{sq_chasing}} </li>
-       <li> Total number of squirrels with tail twitches: {{sq_tail_twitches}} </li>
-   <ul>
- </body>
+   </div>
+</div>
+
+</body>
 </html>
+
