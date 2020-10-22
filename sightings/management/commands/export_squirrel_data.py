@@ -1,10 +1,6 @@
 import csv
 from sightings.models import Squirrel
-from 
 from django.core.management import BaseCommand
-
-
-
 
 class Command(BaseCommand):
    help = 'Export squirrel data from database'

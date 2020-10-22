@@ -16,12 +16,18 @@ class Squirrel(models.Model):
        help_text = _('unique squirrel id'),
        blank = False
    )
+   PM='PM'
+   AM='AM'
+   SHIFT_CHOICES=(
+            (PM,'PM'),
+            (AM,'AM'),
+            )
    Shift = models.CharField(
-       max_length = 255,
-       help_text = _('shift of squirrel')
-   )
-   Date = models.CharField(
-       max_length = 255,
+        max_length=255,
+        choices = SHIFT_CHOICES,
+        help_text = _('shift of squirrel')
+        )
+   Date = models.DateField(
        help_text = _('date'),
        blank = True
    )
