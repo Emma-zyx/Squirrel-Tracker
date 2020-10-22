@@ -37,7 +37,7 @@
         var map_center = [
             40.782091,  // Latitude
             -73.964285  // Longitude
-        ];
+	];
         var zoom_level = 14;
         var map = L.map('map').setView(map_center, zoom_level);
         L.tileLayer('https://{server}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -52,7 +52,7 @@
         <!-- L.Icon.Default.prototype.options.shadowAnchor = [0, 0]; -->
 
 	{% for sight in mapped %}
-          var point_lat_lon = [{{ sight.Longitude}}, {{ sight.Latitude }}]; 
+          var point_lat_lon = [{{sight.Longitude}}, {{sight.Latitude}}]; 
           var marker = L.marker(point_lat_lon).addTo(map);
         {% endfor %}
     </script>
