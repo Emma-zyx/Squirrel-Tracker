@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from django.core.validators import RegexValidator
 
 class Squirrel(models.Model):
    Latitude = models.FloatField(
@@ -10,12 +11,16 @@ class Squirrel(models.Model):
        max_length = 255,
        help_text = _('longtitude of squirrel')
    )
+   
+   my_validator = RegexValidator(r'[0-9]+[A-Z]{1}-[A-Z]{2}-[0-9]{4}-[0-9]+/$', "Invalid ID")
    Unique_Squirrel_ID = models.CharField(
        max_length=255,
        unique = True,
        help_text = _('unique squirrel id'),
-       blank = False
+       blank = False,
+       validators=[my_validator]
    )
+
    Shift = models.CharField(
        max_length = 255,
        help_text = _('shift of squirrel')
@@ -105,3 +110,4 @@ class Squirrel(models.Model):
    def __str__(self):
        return self.Unique_Squirrel_ID
 
+ 
