@@ -17,5 +17,5 @@ The squirrel-tracker program is designed for tracking squirrels in the Central P
 ## UNIs
 - UNIs: [yz3913, yl4600]
 
-## Server Link
+## Link
 - Github Link: https://github.com/Emma-zyx/squirrel-tracker.git
