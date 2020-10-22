@@ -14,22 +14,32 @@ class Squirrel(models.Model):
    
    my_validator = RegexValidator(r'[0-9]+[A-Z]{1}-[A-Z]{2}-[0-9]{4}-[0-9]+/$', "Invalid ID")
    Unique_Squirrel_ID = models.CharField(
-       max_length=255,
+       max_length = 255,
        unique = True,
        help_text = _('unique squirrel id'),
        blank = False,
-       validators=[my_validator]
-   )
+       validators=[my_validator] 
+    )
+   
+   PM='PM'
+   AM='AM'
+   SHIFT_CHOICES = (
+            (PM,'PM'),
+            (AM,'AM'),
+    )
 
    Shift = models.CharField(
-       max_length = 255,
-       help_text = _('shift of squirrel')
-   )
-   Date = models.CharField(
+        max_length = 255,
+        choices = SHIFT_CHOICES,
+        help_text = _('shift of squirrel')
+    )
+   
+   Date = models.DateField(
        max_length = 255,
        help_text = _('date'),
        blank = True
    )
+
    Age = models.CharField(
        max_length = 100,
        help_text = _('age of squirrel'),
