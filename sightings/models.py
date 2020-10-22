@@ -35,9 +35,8 @@ class Squirrel(models.Model):
     )
    
    Date = models.DateField(
-       max_length = 255,
-       help_text = _('date'),
-       blank = True
+        help_text = _('date'),
+        blank = True
    )
 
    Age = models.CharField(
