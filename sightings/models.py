@@ -18,25 +18,24 @@ class Squirrel(models.Model):
        unique = True,
        help_text = _('unique squirrel id'),
        blank = False,
-       validators=[my_validator] 
-    )
-   
+       validators=[my_validator]
+   )
+  
    PM='PM'
    AM='AM'
-   SHIFT_CHOICES = (
+   SHIFT_CHOICES=(
             (PM,'PM'),
             (AM,'AM'),
-    )
-
+            )
+  
    Shift = models.CharField(
-        max_length = 255,
+        max_length=255,
         choices = SHIFT_CHOICES,
         help_text = _('shift of squirrel')
-    )
-   
+        )
    Date = models.DateField(
-        help_text = _('date'),
-        blank = True
+       help_text = _('date'),
+       blank = True
    )
 
    Age = models.CharField(
