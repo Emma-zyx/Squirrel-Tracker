@@ -1,4 +1,4 @@
-# squirrel-tracker
+# Squirrel-Tracker
 ![Project Image](https://cdn.suwalls.com/wallpapers/animals/squirrel-reflected-in-the-water-24042-1920x1080.jpg)
 
 
